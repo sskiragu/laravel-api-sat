@@ -18,9 +18,9 @@ use App\Http\Controllers\ProfileController;
 
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
 
 // Route::apiResource('profile', ProfileController::class)->middleware('auth:sanctum');
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::apiResource('profile', ProfileController::class);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });

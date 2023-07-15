@@ -33,6 +33,8 @@ class AuthController extends BaseController
         }
     }
     public function logout(){
-        
+        $user = Auth::user();
+        $user->tokens()->delete();
+        return response()->json(['message' => 'Logout successful']);
     }
 }

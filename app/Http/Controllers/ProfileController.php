@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -12,7 +13,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return response()->json(['message' => "all users"]);
+        $users = User::all();
+        return response()->json(['message' => $users]);
     }
 
     /**
